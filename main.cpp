@@ -14,14 +14,15 @@
 #include "Material/GradientLight.h"
 #include "Material/Mirror.h"
 #include "Material/Glass.h"
+#include "Scene/Frame/Rectangular.h"
 
 int main() {
 
     Plane plane1 = Plane({Vec3(10,0,0),Vec3(1,0,0)});
     Plane plane2 = Plane({Vec3(-1,0,0), Vec3(1,0,0)});
-    Sphere sphere1(Vec3(0,0.5,0.2),0.2);
-    Sphere sphere2(Vec3(0.1,0,2),0.8);
-    Sphere sphere3(Vec3(0,-0.5,0.2),0.2);
+    Sphere sphere1(Vec3(-0.4,0.5,0.2),0.2);
+    Sphere sphere2(Vec3(0.1,0,0.6),0.4);
+    Sphere sphere3(Vec3(-0.4,-0.5,0.2),0.2);
     GradientLight sky(Color(0.5,0.7,1),Color(1,1,1),0.1);
     Matte matte1(Color(0.5,0.5,0.5));
     Matte matte2(Color(0.5,1,1));
@@ -43,8 +44,9 @@ int main() {
     scene.add(&model4);
     scene.add(&model5);
 
-    Frame frame = Frame(Vec3(0,0,-0.6),Vec3(0.2,0.2,-0.4),Vec3(0,-0.4,0),Vec3(-0.4,0,0),&scene);
-    frame.draw("test.png", 400, 400, 40);
+
+    Rectangular frame = Rectangular(Vec3(0,0,-0.5),Vec3(0.2,0.2,-0.4),Vec3(0,-0.4,0),Vec3(-0.4,0,0));
+    frame.draw("test.png", &scene, 800, 800, 10);
 
     return 0;
 }
