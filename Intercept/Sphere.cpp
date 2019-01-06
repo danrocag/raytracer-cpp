@@ -15,9 +15,7 @@ double Sphere::intercept(Ray ray) {
 
     double limit = ray.dir.norm_inf()*1e-10;
 
-    if (fabs(discriminant) < limit) {
-        return -b / (2*a);
-    } else if (0 < discriminant) {
+    if (0 < discriminant) {
         double l1 = (b + sqrt(discriminant))/(2*a);
         double l2 = (b - sqrt(discriminant))/(2*a);
         if (l1 > 0) {

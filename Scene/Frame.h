@@ -10,7 +10,7 @@
 
 class Frame {
 public:
-    virtual int draw(const char *filename, Scene* scene, int w, int h, int aliasing)= 0;
+    virtual int draw(const char *filename, Scene* scene, int w, int h, int aliasing_n, double aliasing_factor)= 0;
 };
 
 

@@ -18,7 +18,7 @@ private:
 public:
     Rectangular(const Vec3 &origin, const Vec3 &corner, const Vec3 &horizontal, const Vec3 &vertical);
 
-    virtual int draw(const char *filename, Scene *scene, int w, int h, int aliasing);
+    virtual int draw(const char *filename, Scene *scene, int w, int h, int aliasing_n, double aliasing_factor = 0.2);
 };
 
 
