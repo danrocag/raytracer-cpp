@@ -5,7 +5,7 @@
 #include "GradientLight.h"
 
 Color GradientLight::step(Ray ray, Ray normal, random_engine &engine, Tracer tracer) {
-    double t = pow(fabs(ray.dir*normal.dir),order);
+    double t = fmin(pow(fabs(ray.dir*normal.dir),order),1);
     return (light*t).unnormalized_add(dark*(1-t));
 }
 

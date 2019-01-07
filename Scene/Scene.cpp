@@ -17,7 +17,7 @@ Color Scene::trace(Ray ray, random_engine &engine) {
     double current_lambda = std::numeric_limits<double>::max();
     double lambda;
 
-    double min_distance = ray.dir.norm()*1e-2;
+    double min_distance = ray.dir.norm()*1e-10;
 
     for (auto it = models.begin(); it != models.end(); ++it) {
         lambda = (*it)->intercept->intercept(ray);
